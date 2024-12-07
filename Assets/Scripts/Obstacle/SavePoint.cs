@@ -5,6 +5,8 @@ public class SavePoint : MonoBehaviour
     [SerializeField]
     private SpriteRenderer spriteRenderer; // 保存 SpriteRenderer 引用
     private bool isActivated = false;      // 標記是否已經激活
+
+    public string savePointSFX = "savePoint";
     
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -18,6 +20,7 @@ public class SavePoint : MonoBehaviour
 
             // 保存角色位置到存檔管理器
             SaveManager.Instance.SavePosition(transform.position);
+            SFXManager.Instance.PlaySound(savePointSFX);
 
             Debug.Log("存檔點已激活：" + transform.position);
         }

@@ -13,6 +13,10 @@ public class GameManager : MonoBehaviour
 
     [Required]
     public SaveManager SaveManager;
+
+    public SFXManager SfxManager;
+
+    public BGMManager BGMManager;
         
     public static UnityEvent  OnWinGame = new UnityEvent();
     public static UnityEvent OnGameOver = new UnityEvent();

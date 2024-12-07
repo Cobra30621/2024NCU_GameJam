@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: SFXConfig
+  m_EditorClassIdentifier: Assembly-CSharp::SFXConfigSO
+  audioList:
+  - id: savePoint
+    clip: {fileID: 8300000, guid: 4294e445e4c8c4205aa0c3bec2f28b81, type: 3}
+    volume: 1
+  - id: walk
+    clip: {fileID: 8300000, guid: 0cc5c2f9d1c9b4fb988247847fa51b96, type: 3}
+    volume: 0.5
+  - id: start
+    clip: {fileID: 8300000, guid: 403d3a9743d3c4556bd8123eacd81fbf, type: 3}
+    volume: 1
