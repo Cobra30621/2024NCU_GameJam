@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public int maxHealth = 100;
+    public int maxHealth = 3;
     
     [SerializeField]
     private int currentHealth;
@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        Debug.Log("Take damage: " + damage);
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
