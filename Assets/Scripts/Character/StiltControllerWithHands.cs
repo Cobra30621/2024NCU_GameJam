@@ -45,9 +45,6 @@ public class StiltControllerWithHands : MonoBehaviour
         // 獲取搖桿數值
         leftStickValue = leftStickAction.ReadValue<Vector2>();
         rightStickValue = rightStickAction.ReadValue<Vector2>();
-        Debug.Log("leftStickValue: " + leftStickValue);
-        Debug.Log("rightStickValue: " + rightStickValue);   
-
 
         // 控制左高蹺的角度
         ControlStiltAngle(leftStiltRb, leftStickValue.x);
