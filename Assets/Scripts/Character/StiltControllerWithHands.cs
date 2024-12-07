@@ -1,4 +1,6 @@
+using DefaultNamespace;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class StiltControllerWithHands : MonoBehaviour
 {
@@ -10,15 +12,48 @@ public class StiltControllerWithHands : MonoBehaviour
     public float pushStrength = 10f;   // 推力強度
     public float balanceForce = 20f;   // 身體平衡力
 
-    void Update()
+    [SerializeField] private TouchGroundChecker leftGroundChecker;   // 左腳地面檢查器
+    [SerializeField] private TouchGroundChecker rightGroundChecker;  // 右腳地面檢查器
+
+    private PlayerInput playerInput;
+    private InputAction leftStickAction;
+    private InputAction rightStickAction;
+    private Vector2 leftStickValue;
+    private Vector2 rightStickValue;
+
+    private void Awake()
     {
+        playerInput = GetComponent<PlayerInput>();
+        leftStickAction = playerInput.actions["LeftStick"];
+        rightStickAction = playerInput.actions["RightStick"];
+    }
+
+    private void OnEnable()
+    {
+        leftStickAction.Enable();
+        rightStickAction.Enable();
+    }
+
+    private void OnDisable()
+    {
+        leftStickAction.Disable();
+        rightStickAction.Disable();
+    }
+
+    void Update()
+    {   
+        // 獲取搖桿數值
+        leftStickValue = leftStickAction.ReadValue<Vector2>();
+        rightStickValue = rightStickAction.ReadValue<Vector2>();
+        Debug.Log("leftStickValue: " + leftStickValue);
+        Debug.Log("rightStickValue: " + rightStickValue);   
+
+
         // 控制左高蹺的角度
-        float leftHandInput = Input.GetAxis("Vertical_Left"); // 上下鍵或左搖桿垂直方向控制
-        ControlStiltAngle(leftStiltRb, leftHandInput);
+        ControlStiltAngle(leftStiltRb, leftStickValue.x);
 
         // 控制右高蹺的角度
-        float rightHandInput = Input.GetAxis("Vertical_Right"); // 上下鍵或右搖桿垂直方向控制
-        ControlStiltAngle(rightStiltRb, rightHandInput);
+        ControlStiltAngle(rightStiltRb, rightStickValue.x);
     }
 
     void FixedUpdate()
@@ -40,10 +75,10 @@ public class StiltControllerWithHands : MonoBehaviour
             Vector2 force = new Vector2(input * pushStrength, 0);
             stiltRb.AddForce(force);
         }
-        else
-        {
-            stiltRb.velocity = Vector2.zero;
-        }
+        // else
+        // {
+        //     stiltRb.velocity = Vector2.zero;
+        // }
     }
 
     // 計算並施加角色身體的平衡力
