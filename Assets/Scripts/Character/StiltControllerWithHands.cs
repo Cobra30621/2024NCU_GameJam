@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 
 public class StiltControllerWithHands : MonoBehaviour
 {
+    private PlayerController _characterController;
     public Transform body;            // 角色身體
     public Rigidbody2D leftStiltRb;   // 左高蹺的剛體
     public Rigidbody2D rightStiltRb;  // 右高蹺的剛體
@@ -25,12 +26,11 @@ public class StiltControllerWithHands : MonoBehaviour
 
     public HingeJoint2D leftHingeJoint;   // 左邊的 HingeJoint2D
     public HingeJoint2D rightHingeJoint;  // 右邊的 HingeJoint2D
-
-    public string walkFX = "walk";
     
     
     private void Awake()
     {
+        _characterController = GetComponent<PlayerController>();
         playerInput = GetComponent<PlayerInput>();
         leftStickAction = playerInput.actions["LeftStick"];
         rightStickAction = playerInput.actions["RightStick"];
@@ -50,6 +50,9 @@ public class StiltControllerWithHands : MonoBehaviour
 
     void Update()
     {   
+        // 如果角色已死亡，則不處理任何輸入
+        if (_characterController.IsDead) return;
+        
         // 獲取搖桿數值
         leftStickValue = leftStickAction.ReadValue<Vector2>();
         rightStickValue = rightStickAction.ReadValue<Vector2>();
@@ -63,6 +66,9 @@ public class StiltControllerWithHands : MonoBehaviour
 
     void FixedUpdate()
     {
+        // 如果角色已死亡，則不進行平衡
+        if (_characterController.IsDead) return;
+        
         // 在物理更新中保持角色身體的平衡
         BalanceBody();
     }

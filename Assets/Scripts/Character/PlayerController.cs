@@ -1,3 +1,4 @@
+using System.Collections;
 using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.Events;
@@ -17,6 +18,8 @@ public class PlayerController : MonoBehaviour
     public static UnityEvent<int, int> OnHealthChanged = new UnityEvent<int, int>();
 
     private PlayerHurtFeedback _playerHurtFeedback;
+    
+    public bool IsDead { get; private set; }
     
     private void Awake()
     {
@@ -46,18 +49,29 @@ public class PlayerController : MonoBehaviour
         currentHealth -= damage;
         lastDamageTime = Time.time; // 更新上次受傷時間
         OnHealthChanged.Invoke(currentHealth, maxHealth);
-        _playerHurtFeedback.PlayHurtFeedback();
+        
         if (currentHealth <= 0)
         {
             Die();
+        }
+        else
+        {
+            _playerHurtFeedback.PlayHurtFeedback();
         }
     }
 
     void Die()
     {
+        StartCoroutine(DieCoroutine());
+    }
+
+    private IEnumerator DieCoroutine()
+    {
+        IsDead = true;
         // 玩家死亡邏輯
         Debug.Log("Player Died");
-        // GameManager.Instance.GameOver();
+        SFXManager.Instance.PlaySound("die");
+        yield return new WaitForSeconds(2f);
         Respawn();
     }
     
@@ -82,5 +96,6 @@ public class PlayerController : MonoBehaviour
     {
         currentHealth = maxHealth;
         OnHealthChanged.Invoke(currentHealth, maxHealth);
+        IsDead = false;
     }
 }
