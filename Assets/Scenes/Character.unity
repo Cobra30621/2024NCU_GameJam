@@ -5003,18 +5003,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 4888884402853259503, guid: 593295c78cd19401aba9b0350b53bdd7, type: 3}
-      propertyPath: maxTiltAngle
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 4888884402853259503, guid: 593295c78cd19401aba9b0350b53bdd7, type: 3}
-      propertyPath: angleStrength
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 4888884402853259503, guid: 593295c78cd19401aba9b0350b53bdd7, type: 3}
-      propertyPath: stabilizeStrength
-      value: 30
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
