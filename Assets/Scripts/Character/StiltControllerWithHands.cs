@@ -26,7 +26,7 @@ public class StiltControllerWithHands : MonoBehaviour
     public HingeJoint2D leftHingeJoint;   // 左邊的 HingeJoint2D
     public HingeJoint2D rightHingeJoint;  // 右邊的 HingeJoint2D
 
-    
+    public string walkFX = "walk";
     
     
     private void Awake()

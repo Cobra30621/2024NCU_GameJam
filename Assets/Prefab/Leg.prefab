@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8415113970002836059}
   - component: {fileID: 362430853500156638}
   - component: {fileID: 4429018877796999066}
+  - component: {fileID: 1492058075899774721}
   m_Layer: 6
   m_Name: Ground Checker
   m_TagString: Untagged
@@ -102,6 +103,18 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   checkPoint: {fileID: 8415113970002836059}
+--- !u!114 &1492058075899774721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1347484194528691912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac81d82037684058a8cc4282f32f040d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8689104317179099808
 GameObject:
   m_ObjectHideFlags: 0
