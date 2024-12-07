@@ -19,6 +19,6 @@ public class StartScaneControl : MonoBehaviour
     public void GameStart()
     {
         print("GameStart");
-        SceneManager.LoadScene("Map");
+        SceneManager.LoadScene("Game");
     }
 }
