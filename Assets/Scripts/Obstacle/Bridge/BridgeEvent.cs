@@ -7,7 +7,6 @@ public class BridgeEvent : MonoBehaviour
 {
     public bool canMove = false; // 控制是否受物理影響
     private Rigidbody2D rb;
-    
     // Start is called before the first frame update
     void Start()
     {
