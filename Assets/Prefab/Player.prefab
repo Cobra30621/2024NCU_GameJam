@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4888884402853259503}
   - component: {fileID: 5588898060071495082}
   - component: {fileID: 3151784699450393020}
+  - component: {fileID: 6126720023106175012}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -30,7 +31,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2123403537512338200}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.27, y: 3.39, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -230,6 +231,26 @@ MonoBehaviour:
   maxHealth: 3
   currentHealth: 0
   damageCooldown: 1
+--- !u!114 &6126720023106175012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2123403537512338200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4e690cd05ca45a290f0feedceedcc14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerSprites:
+  - {fileID: 8066584912832571656}
+  - {fileID: 289018897603548652}
+  - {fileID: 1399903046202617719}
+  flashDuration: 0.1
+  flashCount: 1
+  vibrationDuration: 0.2
+  vibrationStrength: 0.5
 --- !u!1 &2221868498004201378
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,6 +15,18 @@ public class PlayerController : MonoBehaviour
 
     public static UnityEvent<int, int> OnHealthChanged = new UnityEvent<int, int>();
 
+    private PlayerHurtFeedback _playerHurtFeedback;
+    
+    private void Awake()
+    {
+        _playerHurtFeedback = GetComponent<PlayerHurtFeedback>();
+        if (_playerHurtFeedback == null)
+        {
+            Debug.LogError("PlayerHurtFeedback is null");
+        }
+    }
+    
+    
     void Start()
     {
         currentHealth = maxHealth;
@@ -33,6 +45,7 @@ public class PlayerController : MonoBehaviour
         currentHealth -= damage;
         lastDamageTime = Time.time; // 更新上次受傷時間
         OnHealthChanged.Invoke(currentHealth, maxHealth);
+        _playerHurtFeedback.PlayHurtFeedback();
         if (currentHealth <= 0)
         {
             Die();

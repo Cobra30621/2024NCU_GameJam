@@ -8,8 +8,8 @@ public class GameManager : MonoBehaviour
         
     public PlayerController PlayerController;
         
+    public static UnityEvent  OnWinGame = new UnityEvent();
     public static UnityEvent OnGameOver = new UnityEvent();
-        
         
     private void Awake()
     {
@@ -33,6 +33,12 @@ public class GameManager : MonoBehaviour
          
         // Show Game Over UI
         OnGameOver.Invoke();
+    }
+
+    public void WinGame()
+    {
+        Debug.Log("Win");
+        OnWinGame.Invoke();
     }
 
     public void RestartGame()
