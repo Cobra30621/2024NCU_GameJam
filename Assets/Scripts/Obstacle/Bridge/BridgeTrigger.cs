@@ -84,7 +84,7 @@ public class BridgeTrigger : MonoBehaviour
     // 偵測觸發器進入
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject == playerObject) // 當玩家進入觸發範圍
+        if (other.gameObject.CompareTag("Player")) // 當玩家進入觸發範圍
         {
             Debug.Log("玩家進入橋的範圍！");
             // 延遲執行方法
