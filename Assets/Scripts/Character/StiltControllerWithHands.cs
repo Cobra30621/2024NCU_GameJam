@@ -21,6 +21,11 @@ public class StiltControllerWithHands : MonoBehaviour
     private Vector2 leftStickValue;
     private Vector2 rightStickValue;
 
+    public float maxTiltAngle = 45f;        // 最大傾斜角度
+    public float stabilizeStrength = 15f;    // 回穩力度
+
+    public float groundedAngleStrength = 200f;  // 著地時的角度控制強度
+
     private void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
@@ -64,18 +69,20 @@ public class StiltControllerWithHands : MonoBehaviour
     {
         if (input != 0)
         {
+            // 判斷是否雙腳著地
+            bool bothGrounded = leftGroundChecker.IsGrounded() && rightGroundChecker.IsGrounded();
+            
+            // 根據著地狀態選擇不同的力道
+            float currentAngleStrength = bothGrounded ? groundedAngleStrength : angleStrength;
+            
             // 根據玩家的輸入施加角度力（Torque）
-            float torque = input * angleStrength;
+            float torque = input * currentAngleStrength;
             stiltRb.AddTorque(torque);
 
             // 根據玩家的輸入施加推力（Force）
             Vector2 force = new Vector2(input * pushStrength, 0);
             stiltRb.AddForce(force);
         }
-        // else
-        // {
-        //     stiltRb.velocity = Vector2.zero;
-        // }
     }
 
     // 計算並施加角色身體的平衡力
@@ -86,6 +93,18 @@ public class StiltControllerWithHands : MonoBehaviour
 
         // 計算角色身體應在的位置
         Vector2 bodyOffset = midPoint - (Vector2)body.position;
+
+        // 取身體當前的旋轉角度
+        float currentAngle = body.rotation.eulerAngles.z;
+        // 將角度轉換到 -180 到 180 度之間
+        if (currentAngle > 180) currentAngle -= 360;
+
+        // 當傾斜角度超過閾值時施加回穩扭矩
+        if (Mathf.Abs(currentAngle) > maxTiltAngle)
+        {
+            float stabilizeTorque = -Mathf.Sign(currentAngle) * stabilizeStrength;
+            body.GetComponent<Rigidbody2D>().AddTorque(stabilizeTorque);
+        }
 
         // 將角色身體拉向高蹺中點
         body.GetComponent<Rigidbody2D>().AddForce(bodyOffset * balanceForce);
