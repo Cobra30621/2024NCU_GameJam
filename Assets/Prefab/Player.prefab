@@ -181,11 +181,13 @@ MonoBehaviour:
   body: {fileID: 979443851211309085}
   leftStiltRb: {fileID: 8584071077214330577}
   rightStiltRb: {fileID: 3472036217883361468}
-  angleStrength: 100
-  pushStrength: 10
-  balanceForce: 20
   leftGroundChecker: {fileID: 8339000422638806118}
   rightGroundChecker: {fileID: 3798096972009568779}
+  angleStrength: 50
+  balanceForce: 20
+  groundedAngleStrength: 200
+  leftHingeJoint: {fileID: 1341749441464156619}
+  rightHingeJoint: {fileID: 6165783733919473574}
 --- !u!114 &5588898060071495082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -537,6 +539,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4649332965275790859, guid: 75b9d6c85581c4fbe8eb4f3da1d38cd8, type: 3}
   m_PrefabInstance: {fileID: 703269793612637585}
   m_PrefabAsset: {fileID: 0}
+--- !u!233 &6165783733919473574 stripped
+HingeJoint2D:
+  m_CorrespondingSourceObject: {fileID: 6652880452152326711, guid: 75b9d6c85581c4fbe8eb4f3da1d38cd8, type: 3}
+  m_PrefabInstance: {fileID: 703269793612637585}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5678227174191086588
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -633,6 +640,11 @@ PrefabInstance:
 --- !u!4 &1029250863814137335 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4649332965275790859, guid: 75b9d6c85581c4fbe8eb4f3da1d38cd8, type: 3}
+  m_PrefabInstance: {fileID: 5678227174191086588}
+  m_PrefabAsset: {fileID: 0}
+--- !u!233 &1341749441464156619 stripped
+HingeJoint2D:
+  m_CorrespondingSourceObject: {fileID: 6652880452152326711, guid: 75b9d6c85581c4fbe8eb4f3da1d38cd8, type: 3}
   m_PrefabInstance: {fileID: 5678227174191086588}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &8339000422638806118 stripped
