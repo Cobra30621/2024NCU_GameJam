@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Cinemachine;
 using End;
 using Sirenix.OdinInspector;
@@ -84,10 +85,19 @@ public class GameManager : MonoBehaviour
 
     public void InitialPlayer()
     {
+        StartCoroutine(InitialPlayerCoroutine());
+    }
+
+    private IEnumerator InitialPlayerCoroutine()
+    {
+        PlayerController.SetCanMove(false);
         if (SaveManager.HasSavedPosition())
         {
             PlayerController.transform.position = SaveManager.GetSavedPosition();
         }
         PlayerController.InitHealth();
+        
+        yield return new WaitForSeconds(0.5f);
+        PlayerController.SetCanMove(true);
     }
 }

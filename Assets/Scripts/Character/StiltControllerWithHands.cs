@@ -51,7 +51,7 @@ public class StiltControllerWithHands : MonoBehaviour
     void Update()
     {   
         // 如果角色已死亡，則不處理任何輸入
-        if (_characterController.IsDead) return;
+        if (!_characterController.CanMove) return;
         
         // 獲取搖桿數值
         leftStickValue = leftStickAction.ReadValue<Vector2>();
@@ -67,7 +67,7 @@ public class StiltControllerWithHands : MonoBehaviour
     void FixedUpdate()
     {
         // 如果角色已死亡，則不進行平衡
-        if (_characterController.IsDead) return;
+        if (!_characterController.CanMove) return;
         
         // 在物理更新中保持角色身體的平衡
         BalanceBody();
