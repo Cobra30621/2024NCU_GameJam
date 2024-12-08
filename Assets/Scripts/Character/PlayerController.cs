@@ -20,6 +20,10 @@ public class PlayerController : MonoBehaviour
     public static UnityEvent<int, int> OnHealthChanged = new UnityEvent<int, int>();
 
     private PlayerHurtFeedback _playerHurtFeedback;
+
+    public SpriteRenderer SpriteRenderer;
+    public Sprite deadSprite;
+    
     
     public bool CanMove { get; private set; }
     
@@ -82,7 +86,8 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator DieCoroutine()
     {
-        CanMove = true;
+        CanMove = false;
+        SpriteRenderer.sprite = deadSprite;
         // 玩家死亡邏輯
         Debug.Log("Player Died");
         SFXManager.Instance.PlaySound("die");
@@ -96,7 +101,7 @@ public class PlayerController : MonoBehaviour
     {
         currentHealth = maxHealth;
         OnHealthChanged.Invoke(currentHealth, maxHealth);
-        CanMove = false;
+        CanMove = true;
     }
     
     public void SetCanMove(bool canMove)
