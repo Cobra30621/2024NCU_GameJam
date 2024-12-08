@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace UI
 {
@@ -6,7 +7,7 @@ namespace UI
     {
         public void Restart()
         {
-            GameManager.Instance.RestartGame();
+            SceneManager.LoadScene("Game");
         }
     }
 }
