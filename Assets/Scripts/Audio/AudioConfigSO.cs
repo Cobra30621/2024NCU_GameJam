@@ -11,11 +11,7 @@ public abstract class AudioConfigSO : ScriptableObject
     }
 }
 
-[CreateAssetMenu(fileName = "BGMConfig", menuName = "Audio/BGM Config")]
-public class BGMConfigSO : AudioConfigSO { }
 
-[CreateAssetMenu(fileName = "SFXConfig", menuName = "Audio/SFX Config")]
-public class SFXConfigSO : AudioConfigSO { }
 
 [System.Serializable]
 public class AudioData

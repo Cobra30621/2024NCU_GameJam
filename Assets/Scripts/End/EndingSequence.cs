@@ -32,6 +32,7 @@ public class EndingSequence : MonoBehaviour
 
     private System.Collections.IEnumerator PlayEndingSequence()
     {
+        BGMManager.Instance.PlayBGM("end");
         completePlayer.SetActive(false);
         shoeAnimator.gameObject.SetActive(true);
         playerAnimator.gameObject.SetActive(true);

@@ -74,6 +74,7 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
+        BGMManager.Instance.PlayBGM("game");
         SaveManager.Initial();
     }
 

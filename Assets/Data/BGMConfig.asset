@@ -9,7 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 4d1d705320904af490468f06841c6d1e, type: 3}
   m_Name: BGMConfig
   m_EditorClassIdentifier: Assembly-CSharp::BGMConfigSO
-  audioList: []
+  audioList:
+  - id: game
+    clip: {fileID: 8300000, guid: dca82355ffe7b4c2496247e360802b6b, type: 3}
+    volume: 1
+  - id: end
+    clip: {fileID: 8300000, guid: 51b86b94417d6436e9ceec6502136e52, type: 3}
+    volume: 1
