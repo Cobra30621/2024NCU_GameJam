@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
@@ -27,7 +28,7 @@ public class ScreenEffectController : MonoBehaviour
     [Button]
     public void Flash()
     {
-        StartCoroutine(FlashCoroutine());
+        StartCoroutine(FlashCoroutine(1, ()=>{}));
     }
     
 
@@ -62,7 +63,7 @@ public class ScreenEffectController : MonoBehaviour
     }
 
     // 閃光效果
-    public IEnumerator FlashCoroutine(float duration = -1)
+    public IEnumerator FlashCoroutine(float duration , Action flashingAction)
     {
         duration = duration < 0 ? defaultFlashDuration : duration;
         float halfDuration = duration / 2;
@@ -76,6 +77,9 @@ public class ScreenEffectController : MonoBehaviour
             flashImage.color = new Color(1, 1, 1, alpha);
             yield return null;
         }
+        
+        flashingAction.Invoke();
+        yield return new WaitForSeconds(0.2f);
         
         elapsedTime = 0;
         

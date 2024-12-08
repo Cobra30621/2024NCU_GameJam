@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 40318f145074c41bdb4602bd8271a97b
+guid: 9b424d0abe116493e94766bb41b38133
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -136,13 +136,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: shining_0
+      name: right_walk_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 152
-        height: 40
+        width: 240
+        height: 116
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,20 +150,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 77bc48ae2fc5d462182d6aedd73aef32
-      internalID: -2111456087
+      spriteID: 8592b0b0408b34a3fa4cc1a10b9bb50d
+      internalID: 1782954167
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shining_1
+      name: right_walk_1
       rect:
         serializedVersion: 2
-        x: 152
+        x: 240
         y: 0
-        width: 152
-        height: 40
+        width: 240
+        height: 116
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,20 +171,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac27138206b2449c4ac86f90d8a94ea4
-      internalID: -1059814389
+      spriteID: 30e31585276f94a5dba5164ec7c84884
+      internalID: -174054016
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shining_2
+      name: right_walk_2
       rect:
         serializedVersion: 2
-        x: 304
+        x: 480
         y: 0
-        width: 152
-        height: 40
+        width: 240
+        height: 116
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,20 +192,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7965ab2e4b764f26a40557053a0d3c9
-      internalID: -544663879
+      spriteID: 3c886559ce560498b9b0de30e0e20176
+      internalID: -459690486
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shining_3
+      name: right_walk_3
       rect:
         serializedVersion: 2
-        x: 456
+        x: 720
         y: 0
-        width: 152
-        height: 40
+        width: 240
+        height: 116
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,71 +213,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dfae132fd664e46ad9938f2c66f1ecbf
-      internalID: 1442452995
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shining_4
-      rect:
-        serializedVersion: 2
-        x: 608
-        y: 0
-        width: 152
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b8b01b9fcef4547958e4ab134cddd37d
-      internalID: -666648866
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shining_5
-      rect:
-        serializedVersion: 2
-        x: 760
-        y: 0
-        width: 152
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b028e6be6d18b41238cda0c07ac655a6
-      internalID: -1967344663
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shining_6
-      rect:
-        serializedVersion: 2
-        x: 912
-        y: 0
-        width: 152
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bd746e46e34a343ff90f6934e5f70e39
-      internalID: 1413047252
+      spriteID: 6bc4d85a9d494490888c3480f8298d0f
+      internalID: -1264840936
       vertices: []
       indices: 
       edges: []
@@ -293,13 +230,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      shining_0: -2111456087
-      shining_1: -1059814389
-      shining_2: -544663879
-      shining_3: 1442452995
-      shining_4: -666648866
-      shining_5: -1967344663
-      shining_6: 1413047252
+      right_walk_0: 1782954167
+      right_walk_1: -174054016
+      right_walk_2: -459690486
+      right_walk_3: -1264840936
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

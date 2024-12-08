@@ -12,9 +12,12 @@ public class EndingSequence : MonoBehaviour
     [SerializeField]
     private bool isEndingStarted = false;
 
+    public GameObject cg;
+    
+
     void Start()
     {
-        StartEndingSequence();
+        // StartEndingSequence();
     }
 
     [Button]
@@ -29,40 +32,49 @@ public class EndingSequence : MonoBehaviour
 
     private System.Collections.IEnumerator PlayEndingSequence()
     {
+        completePlayer.SetActive(false);
+        shoeAnimator.gameObject.SetActive(true);
+        playerAnimator.gameObject.SetActive(true);
+
+        yield return new WaitForSeconds(1f);
         // 1. 播放玩家移動動畫，等待動畫播放完成
         playerAnimator.SetTrigger("Move");
-        yield return WaitForAnimationToEnd(playerAnimator, "PlayerMove");
+        yield return WaitForAnimationToEnd(playerAnimator, "Wait_Leg_Falling");
 
         // 2. 播放鞋子落下動畫，等待動畫播放完成
         shoeAnimator.SetTrigger("Drop");
-        yield return WaitForAnimationToEnd(shoeAnimator, "ShoeDrop");
+        yield return WaitForAnimationToEnd(shoeAnimator, "EndFalling");
 
+        // 3. 玩家跳水
+        playerAnimator.SetTrigger("Jump");
+        yield return WaitForAnimationToEnd(playerAnimator, "EndJump");
+        
+        yield return new WaitForSeconds(1f);
+        
         // 3. 播放閃光特效
-        yield return effectController.FlashCoroutine();
+        yield return effectController.FlashCoroutine(-1,() =>
+        {
+            cg.SetActive(true);
+        });
+
+        yield return new WaitForSeconds(5f);
+        cg.SetActive(false);
+        
         
         completePlayer.SetActive(true);
+        shoeAnimator.gameObject.SetActive(false);
+        playerAnimator.gameObject.SetActive(false);
 
         Debug.Log("結局完成！");
     }
 
-    private System.Collections.IEnumerator WaitForAnimationToEnd(Animator animator, string animationName)
+    private System.Collections.IEnumerator WaitForAnimationToEnd(Animator animator, string endAnimationName)
     {
-        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);;
-        
         // 等待開始播放指定動畫
         yield return new WaitUntil(() =>
         {
-            stateInfo = animator.GetCurrentAnimatorStateInfo(0);
-            return stateInfo.IsName(animationName);
+            AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+            return stateInfo.IsName(endAnimationName);
         });
-        
-        // 等待指定動畫播完
-        while (stateInfo.IsName(animationName) || stateInfo.normalizedTime < 1f)
-        {
-            stateInfo = animator.GetCurrentAnimatorStateInfo(0);
-            Debug.Log("animation: " + animationName + stateInfo.IsName(animationName) + 
-                      ", time: " + stateInfo.normalizedTime);
-            yield return null; // 每幀等待
-        }
     }
 }

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 40318f145074c41bdb4602bd8271a97b
+guid: 217d0c84a103b4f6788339ff26dd1fd2
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -134,154 +134,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: shining_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 152
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 77bc48ae2fc5d462182d6aedd73aef32
-      internalID: -2111456087
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shining_1
-      rect:
-        serializedVersion: 2
-        x: 152
-        y: 0
-        width: 152
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ac27138206b2449c4ac86f90d8a94ea4
-      internalID: -1059814389
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shining_2
-      rect:
-        serializedVersion: 2
-        x: 304
-        y: 0
-        width: 152
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c7965ab2e4b764f26a40557053a0d3c9
-      internalID: -544663879
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shining_3
-      rect:
-        serializedVersion: 2
-        x: 456
-        y: 0
-        width: 152
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dfae132fd664e46ad9938f2c66f1ecbf
-      internalID: 1442452995
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shining_4
-      rect:
-        serializedVersion: 2
-        x: 608
-        y: 0
-        width: 152
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b8b01b9fcef4547958e4ab134cddd37d
-      internalID: -666648866
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shining_5
-      rect:
-        serializedVersion: 2
-        x: 760
-        y: 0
-        width: 152
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b028e6be6d18b41238cda0c07ac655a6
-      internalID: -1967344663
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shining_6
-      rect:
-        serializedVersion: 2
-        x: 912
-        y: 0
-        width: 152
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bd746e46e34a343ff90f6934e5f70e39
-      internalID: 1413047252
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -292,14 +145,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      shining_0: -2111456087
-      shining_1: -1059814389
-      shining_2: -544663879
-      shining_3: 1442452995
-      shining_4: -666648866
-      shining_5: -1967344663
-      shining_6: 1413047252
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

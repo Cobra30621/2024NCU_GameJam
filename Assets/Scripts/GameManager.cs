@@ -1,5 +1,6 @@
 using System;
 using Cinemachine;
+using End;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
@@ -64,6 +65,11 @@ public class GameManager : MonoBehaviour
         {
             PlayerController.TakeDamage(1000);
         }
+
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            WinGame();
+        }
     }
 
     public void StartGame()
@@ -81,6 +87,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Win");
         OnWinGame.Invoke();
+        EndLoader.Instance.LoadEnd();
     }
 
     public void RestartGame()
