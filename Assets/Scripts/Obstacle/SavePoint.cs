@@ -19,7 +19,7 @@ public class SavePoint : MonoBehaviour
             spriteRenderer.gameObject.SetActive(false);
 
             // 保存角色位置到存檔管理器
-            SaveManager.Instance.SavePosition(transform.position);
+            SaveManager.SavePosition(transform.position);
             SFXManager.Instance.PlaySound(savePointSFX);
 
             Debug.Log("存檔點已激活：" + transform.position);

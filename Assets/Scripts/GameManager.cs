@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Cinemachine;
 using End;
 using Sirenix.OdinInspector;
@@ -11,16 +12,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
     
     [Required]
-    public PlayerController playerPrefab;
-    
-    [Required]
-    public CinemachineVirtualCamera followCamera;
-
-    [Required]
     public PlayerController PlayerController;
-
-    [Required]
-    public SaveManager SaveManager;
 
     public SFXManager SfxManager;
 
@@ -35,16 +27,6 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
         }
-        
-        if (followCamera == null)
-        {
-            followCamera = FindObjectOfType<CinemachineVirtualCamera>();
-            if (followCamera == null)
-            {
-                Debug.LogError("場景中找不到 CinemachineVirtualCamera");
-            }
-        }
-        
         StartGame();
     }
 
@@ -74,13 +56,14 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        SaveManager.Initial();
+        BGMManager.Instance.PlayBGM("game");
+        InitialPlayer();
+        
     }
 
-    public void GameOver(){
-         
-        // Show Game Over UI
-        OnGameOver.Invoke();
+    public void OnApplicationQuit()
+    {
+        SaveManager.Initial();
     }
 
     public void WinGame()
@@ -100,24 +83,21 @@ public class GameManager : MonoBehaviour
         PlayerController.TakeDamage(damage);
     }
 
-    public void RespawnPlayer()
+    public void InitialPlayer()
     {
-        if (SaveManager.Instance.HasSavedPosition())
+        StartCoroutine(InitialPlayerCoroutine());
+    }
+
+    private IEnumerator InitialPlayerCoroutine()
+    {
+        PlayerController.SetCanMove(false);
+        if (SaveManager.HasSavedPosition())
         {
-            // 如果有存檔點，重置角色位置
-            Destroy(PlayerController.gameObject);
-            PlayerController = Instantiate(playerPrefab);
-            
-            PlayerController.transform.position = SaveManager.Instance.GetSavedPosition();
-            PlayerController.InitHealth();
-            followCamera.Follow = PlayerController.transform;
-            Debug.Log("角色已在存檔點復活");
+            PlayerController.transform.position = SaveManager.GetSavedPosition();
         }
-        else
-        {
-            // 如果沒有存檔點，重新加載場景
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            Debug.Log("沒有存檔點，重新加載場景");
-        }
+        PlayerController.InitHealth();
+        
+        yield return new WaitForSeconds(0.5f);
+        PlayerController.SetCanMove(true);
     }
 }

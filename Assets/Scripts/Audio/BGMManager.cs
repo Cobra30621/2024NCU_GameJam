@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using System.Collections.Generic;
+using Audio;
 using Sirenix.OdinInspector;
 
 [RequireComponent(typeof(AudioSource))]

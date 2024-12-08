@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
 
     private PlayerHurtFeedback _playerHurtFeedback;
     
-    public bool IsDead { get; private set; }
+    public bool CanMove { get; private set; }
     
     private void Awake()
     {
@@ -82,12 +82,12 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator DieCoroutine()
     {
-        IsDead = true;
+        CanMove = true;
         // 玩家死亡邏輯
         Debug.Log("Player Died");
         SFXManager.Instance.PlaySound("die");
         yield return new WaitForSeconds(2f);
-        GameManager.Instance.RespawnPlayer();
+        GameManager.Instance.RestartGame();
     }
 
 
@@ -96,6 +96,11 @@ public class PlayerController : MonoBehaviour
     {
         currentHealth = maxHealth;
         OnHealthChanged.Invoke(currentHealth, maxHealth);
-        IsDead = false;
+        CanMove = false;
+    }
+    
+    public void SetCanMove(bool canMove)
+    {
+        CanMove = canMove;
     }
 }
