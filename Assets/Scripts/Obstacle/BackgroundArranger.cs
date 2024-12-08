@@ -34,6 +34,7 @@ public class BackgroundArranger : MonoBehaviour
 
                 SpriteRenderer sr = bg.AddComponent<SpriteRenderer>();
                 sr.sprite = sequence.sprite;
+                sr.sortingOrder = -1;
 
                 float bgWidth = sr.bounds.size.x;
                 bg.transform.position = new Vector3(currentXPosition, 0, 0);
