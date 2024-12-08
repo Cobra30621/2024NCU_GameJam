@@ -6,7 +6,8 @@ using Sirenix.OdinInspector;
 [RequireComponent(typeof(AudioSource))]
 public class BGMManager : MonoBehaviour
 {
-    public static BGMManager Instance => GameManager.Instance.BGMManager;
+    private static BGMManager _instance;
+    public static BGMManager Instance => _instance;
 
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private float defaultVolume = 0.5f;
@@ -22,11 +23,22 @@ public class BGMManager : MonoBehaviour
 
     private void Awake()
     {
+        // 單例模式設置
+        if (_instance == null)
+        {
+            _instance = this;
+        }
+        
         audioSource = GetComponent<AudioSource>();
         audioSource.loop = true;
         
         // 初始化音訊字典
         InitializeAudioDictionary();
+    }
+    
+    private void OnDestroy()
+    {
+        _instance = null;
     }
 
     private void InitializeAudioDictionary()

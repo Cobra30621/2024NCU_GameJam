@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
@@ -6,7 +7,8 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class SFXManager : MonoBehaviour
 {
-    public static SFXManager Instance => GameManager.Instance.SfxManager;
+    private static SFXManager _instance;
+    public static SFXManager Instance => _instance;
 
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private float defaultVolume = 1f;
@@ -19,11 +21,21 @@ public class SFXManager : MonoBehaviour
     private void Awake()
     {
         // 單例模式設置
+        if (_instance == null)
+        {
+            _instance = this;
+        }
+        
         // 獲取AudioSource組件
         audioSource = GetComponent<AudioSource>();
         
         // 初始化音訊字典
         InitializeAudioDictionary();
+    }
+
+    private void OnDestroy()
+    {
+        _instance = null;
     }
 
     private void InitializeAudioDictionary()
