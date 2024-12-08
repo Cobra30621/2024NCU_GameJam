@@ -6,6 +6,8 @@ public class SaveManager : MonoBehaviour
 
     private Vector3 lastSavedPosition; // 記錄最後的存檔位置
     private bool hasSavedPosition = false; // 是否已經有存檔點
+    
+    public Vector3 spawnOffset;
 
     public void Initial()
     {
@@ -23,7 +25,7 @@ public class SaveManager : MonoBehaviour
     // 獲取角色存檔位置
     public Vector3 GetSavedPosition()
     {
-        return lastSavedPosition;
+        return lastSavedPosition + spawnOffset;
     }
 
     // 檢查是否有有效的存檔點

@@ -87,27 +87,12 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Player Died");
         SFXManager.Instance.PlaySound("die");
         yield return new WaitForSeconds(2f);
-        Respawn();
-    }
-    
-    private void Respawn()
-    {
-        if (SaveManager.Instance.HasSavedPosition())
-        {
-            // 如果有存檔點，重置角色位置
-            transform.position = SaveManager.Instance.GetSavedPosition();
-            InitHealth();
-            Debug.Log("角色已在存檔點復活");
-        }
-        else
-        {
-            // 如果沒有存檔點，重新加載場景
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            Debug.Log("沒有存檔點，重新加載場景");
-        }
+        GameManager.Instance.RespawnPlayer();
     }
 
-    private void InitHealth()
+
+    
+    public void InitHealth()
     {
         currentHealth = maxHealth;
         OnHealthChanged.Invoke(currentHealth, maxHealth);

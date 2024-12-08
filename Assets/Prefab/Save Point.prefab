@@ -27,8 +27,8 @@ Transform:
   m_GameObject: {fileID: 6325840590436571627}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0731, y: -0.469, z: 0}
-  m_LocalScale: {x: 1.9327837, y: 0.23944567, z: 0.381}
+  m_LocalPosition: {x: 0.0731, y: -0.474, z: 0}
+  m_LocalScale: {x: 1.9327837, y: 0.22197093, z: 0.381}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5491073437868898805}
@@ -135,7 +135,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 26.47, y: 2.05, z: 0}
-  m_LocalScale: {x: 2, y: 13.06, z: 1}
+  m_LocalScale: {x: 2, y: 15, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7609344318475452993}
@@ -212,6 +212,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bca5eb9ebcc44c949dbd6efe21e4e17a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultSprite: {fileID: 21300000, guid: 4c06d354dbb6e4e8ab8db687125bfca8, type: 3}
-  activatedSprite: {fileID: 21300000, guid: dbb752b7492484021bcfbae1bf7144a9, type: 3}
   spriteRenderer: {fileID: 7798219890654837889}
+  savePointSFX: savePoint
