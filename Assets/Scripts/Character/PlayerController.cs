@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    public bool NeverDead = false;
+    
     public int maxHealth = 3;
     
     [SerializeField]
@@ -36,6 +38,19 @@ public class PlayerController : MonoBehaviour
         InitHealth();
     }
     
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            NeverDead = true;
+            Debug.Log("無敵模式開啟");
+        }
+        else if (Input.GetKeyDown(KeyCode.O))
+        {
+            NeverDead = false;
+            Debug.Log("無敵模式關閉");
+        }
+    }
 
     public void TakeDamage(int damage)
     {
@@ -50,7 +65,7 @@ public class PlayerController : MonoBehaviour
         lastDamageTime = Time.time; // 更新上次受傷時間
         OnHealthChanged.Invoke(currentHealth, maxHealth);
         
-        if (currentHealth <= 0)
+        if (currentHealth <= 0 && !NeverDead)
         {
             Die();
         }
