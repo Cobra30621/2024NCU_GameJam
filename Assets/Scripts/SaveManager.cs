@@ -1,35 +1,32 @@
 using UnityEngine;
 
-public class SaveManager : MonoBehaviour
+public static class SaveManager
 {
-    public static SaveManager Instance => GameManager.Instance.SaveManager;
-
-    private Vector3 lastSavedPosition; // 記錄最後的存檔位置
-    private bool hasSavedPosition = false; // 是否已經有存檔點
+    private static  Vector3 lastSavedPosition; // 記錄最後的存檔位置
+    private static  bool hasSavedPosition = false; // 是否已經有存檔點
     
-    public Vector3 spawnOffset;
 
-    public void Initial()
+    public static  void Initial()
     {
         lastSavedPosition = Vector3.zero;
         hasSavedPosition = false;
     }
 
     // 保存角色位置
-    public void SavePosition(Vector3 position)
+    public static  void SavePosition(Vector3 position)
     {
         lastSavedPosition = position;
         hasSavedPosition = true;
     }
 
     // 獲取角色存檔位置
-    public Vector3 GetSavedPosition()
+    public static  Vector3 GetSavedPosition()
     {
-        return lastSavedPosition + spawnOffset;
+        return lastSavedPosition;
     }
 
     // 檢查是否有有效的存檔點
-    public bool HasSavedPosition()
+    public static  bool HasSavedPosition()
     {
         return hasSavedPosition;
     }

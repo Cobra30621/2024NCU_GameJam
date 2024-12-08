@@ -87,7 +87,7 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Player Died");
         SFXManager.Instance.PlaySound("die");
         yield return new WaitForSeconds(2f);
-        GameManager.Instance.RespawnPlayer();
+        GameManager.Instance.RestartGame();
     }
 
 
