@@ -93,7 +93,9 @@ public class StiltControllerWithHands : MonoBehaviour
             // 根據玩家的輸入施加角度力（Torque）
             float torque = input * currentAngleStrength;
             stiltRb.AddTorque(torque);
-            
+            // float torque = input * currentAngleStrength * Time.fixedDeltaTime;
+            // stiltRb.AddTorque(torque);
+
         }
         else
         {

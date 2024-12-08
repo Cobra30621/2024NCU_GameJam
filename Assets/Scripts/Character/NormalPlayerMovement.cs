@@ -43,23 +43,23 @@ namespace DefaultNamespace
             }
         }
 
-        void OnCollisionEnter2D(Collision2D collision)
-        {
-            // 確保碰撞的是地面
-            if (collision.gameObject.CompareTag("Ground"))
-            {
-                isGrounded = true;
-                jumpCount = 0; // 重置跳躍次數
-            }
-        }
-
-        void OnCollisionExit2D(Collision2D collision)
-        {
-            // 離開地面
-            if (collision.gameObject.CompareTag("Ground"))
-            {
-                isGrounded = false;
-            }
-        }
+        // void OnCollisionEnter2D(Collision2D collision)
+        // {
+        //     // 確保碰撞的是地面
+        //     if (collision.gameObject.CompareTag("ground"))
+        //     {
+        //         isGrounded = true;
+        //         jumpCount = 0; // 重置跳躍次數
+        //     }
+        // }
+        //
+        // void OnCollisionExit2D(Collision2D collision)
+        // {
+        //     // 離開地面
+        //     if (collision.gameObject.CompareTag("ground"))
+        //     {
+        //         isGrounded = false;
+        //     }
+        // }
     }
 }

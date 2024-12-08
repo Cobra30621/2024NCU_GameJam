@@ -13,6 +13,8 @@ public class EndingSequence : MonoBehaviour
     private bool isEndingStarted = false;
 
     public GameObject cg;
+
+    public GameObject restartButton;
     
 
     void Start()
@@ -61,6 +63,7 @@ public class EndingSequence : MonoBehaviour
         yield return new WaitForSeconds(5f);
         cg.SetActive(false);
         
+        restartButton.gameObject.SetActive(true);
         
         completePlayer.SetActive(true);
         shoeAnimator.gameObject.SetActive(false);

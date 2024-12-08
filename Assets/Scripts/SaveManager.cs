@@ -22,7 +22,7 @@ public static class SaveManager
     // 獲取角色存檔位置
     public static  Vector3 GetSavedPosition()
     {
-        return lastSavedPosition;
+        return lastSavedPosition + new Vector3(0, 0.5f, 0);
     }
 
     // 檢查是否有有效的存檔點
