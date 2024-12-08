@@ -29,6 +29,7 @@ namespace DefaultNamespace
         {
             StartCoroutine(FlashRoutine());
             StartCoroutine(VibrateRoutine());
+            SFXManager.Instance.PlaySound("hurt");
         }
 
         private IEnumerator FlashRoutine()

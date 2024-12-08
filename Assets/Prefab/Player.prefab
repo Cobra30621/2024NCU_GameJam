@@ -80,8 +80,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 845825379
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 280e42401d7de4b31b052878e3c61f78, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -232,7 +232,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   currentHealth: 0
-  damageCooldown: 1
+  damageCooldown: 2
 --- !u!114 &6126720023106175012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -323,8 +323,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 845825379
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5b18b2336bafa41528b9d75dbae5ea0c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -407,8 +407,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 845825379
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9c4bccb0660564405a1d7c0c27c2f5b1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -433,6 +433,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 4de67de0942154a26a5405b43d4c933d, type: 3}
+    - target: {fileID: 771809556550971327, guid: 75b9d6c85581c4fbe8eb4f3da1d38cd8, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 771809556550971327, guid: 75b9d6c85581c4fbe8eb4f3da1d38cd8, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 845825379
+      objectReference: {fileID: 0}
     - target: {fileID: 4174171297106994477, guid: 75b9d6c85581c4fbe8eb4f3da1d38cd8, type: 3}
       propertyPath: m_Mass
       value: 3
@@ -552,6 +560,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 979443851211309085}
     m_Modifications:
+    - target: {fileID: 771809556550971327, guid: 75b9d6c85581c4fbe8eb4f3da1d38cd8, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 771809556550971327, guid: 75b9d6c85581c4fbe8eb4f3da1d38cd8, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 845825379
+      objectReference: {fileID: 0}
     - target: {fileID: 4174171297106994477, guid: 75b9d6c85581c4fbe8eb4f3da1d38cd8, type: 3}
       propertyPath: m_Mass
       value: 3

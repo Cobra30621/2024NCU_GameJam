@@ -22,3 +22,9 @@ MonoBehaviour:
   - id: start
     clip: {fileID: 8300000, guid: 403d3a9743d3c4556bd8123eacd81fbf, type: 3}
     volume: 1
+  - id: hurt
+    clip: {fileID: 8300000, guid: 4b09be79d7006451ea46dae691b3c57f, type: 3}
+    volume: 1
+  - id: die
+    clip: {fileID: 8300000, guid: d13787a282d484ff68e129b97d4c92b2, type: 3}
+    volume: 1
