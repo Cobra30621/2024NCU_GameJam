@@ -30,7 +30,7 @@ public class EnemyEvent : MonoBehaviour
         Move();
 
         // 確認是否需要轉身
-        if ((IsAtEdge() || IsHittingWall())&&shouldRurn)
+        if ((IsAtEdge() )&&shouldRurn || IsHittingWall())
         {
             Flip();
             shouldRurn = false;
@@ -69,7 +69,9 @@ public class EnemyEvent : MonoBehaviour
     bool IsHittingWall()
     {
         float direction = movingRight ? 1 : -1;
-        RaycastHit2D wallInfo = Physics2D.Raycast(transform.position, Vector2.right * direction, 0.5f, groundLayer);
+        float rayDistance = 1f;
+        RaycastHit2D wallInfo = Physics2D.Raycast(transform.position, Vector2.right * direction, rayDistance, groundLayer);
+        Debug.DrawRay(transform.position, Vector2.right * direction* rayDistance, Color.red); // Debug 可視化檢查
         return wallInfo.collider != null; // 如果前方有牆壁，則返回 true
     }
 
