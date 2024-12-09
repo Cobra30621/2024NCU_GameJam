@@ -1,6 +1,8 @@
 using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
+using TMPro;
 
 public class StiltControllerWithHands : MonoBehaviour
 {
@@ -28,6 +30,9 @@ public class StiltControllerWithHands : MonoBehaviour
     public HingeJoint2D rightHingeJoint;  // 右邊的 HingeJoint2D
     
     
+    [SerializeField] private TMP_InputField angleStrengthInput;    // 改用 InputField
+    [SerializeField] private TMP_InputField groundAngleStrengthInput;
+
     private void Awake()
     {
         _characterController = GetComponent<PlayerController>();
@@ -91,10 +96,10 @@ public class StiltControllerWithHands : MonoBehaviour
             float currentAngleStrength = bothGrounded ? groundedAngleStrength : angleStrength;
             
             // 根據玩家的輸入施加角度力（Torque）
-            float torque = input * currentAngleStrength;
-            stiltRb.AddTorque(torque);
-            // float torque = input * currentAngleStrength * Time.fixedDeltaTime;
+            // float torque = input * currentAngleStrength;
             // stiltRb.AddTorque(torque);
+            float torque = input * currentAngleStrength * Time.fixedDeltaTime * 60f;
+            stiltRb.AddTorque(torque);
 
         }
         else
@@ -116,5 +121,43 @@ public class StiltControllerWithHands : MonoBehaviour
         
         // 將角色身體拉向高蹺中點
         body.GetComponent<Rigidbody2D>().AddForce(bodyOffset * balanceForce);
+    }
+
+    void Start()
+    {
+        // 設置輸入框的初始值
+        angleStrengthInput.text = angleStrength.ToString();
+        groundAngleStrengthInput.text = groundedAngleStrength.ToString();
+        
+        // 添加輸入框的值改變監聽器
+        angleStrengthInput.onEndEdit.AddListener(UpdateAngleStrength);
+        groundAngleStrengthInput.onEndEdit.AddListener(UpdateGroundAngleStrength);
+    }
+
+    // 更新處理方法以處理字符串輸入
+    private void UpdateAngleStrength(string value)
+    {
+        if (float.TryParse(value, out float newValue))
+        {
+            angleStrength = newValue;
+        }
+        else
+        {
+            // 如果輸入無效，恢復為原始值
+            angleStrengthInput.text = angleStrength.ToString();
+        }
+    }
+
+    private void UpdateGroundAngleStrength(string value)
+    {
+        if (float.TryParse(value, out float newValue))
+        {
+            groundedAngleStrength = newValue;
+        }
+        else
+        {
+            // 如果輸入無效，恢復為原始值
+            groundAngleStrengthInput.text = groundedAngleStrength.ToString();
+        }
     }
 }
